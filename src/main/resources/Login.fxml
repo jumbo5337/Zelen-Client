@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -14,14 +13,14 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="400.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="400.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <padding>
       <Insets bottom="15.0" left="15.0" right="15.0" top="17.0" />
    </padding>
    <center>
-      <TabPane prefHeight="391.0" prefWidth="352.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+      <TabPane fx:id="loginMainTab" prefHeight="391.0" prefWidth="352.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
-          <Tab text="Login">
+          <Tab fx:id="loginTab" text="Login">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="192.0">
                      <children>
@@ -38,10 +37,7 @@
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password" GridPane.rowIndex="1" />
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
-                              <TextField fx:id="usenameField1" alignment="CENTER" maxHeight="-Infinity" maxWidth="200.0" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
-                                 <effect>
-                                    <Reflection />
-                                 </effect>
+                              <TextField fx:id="usenameField1" maxHeight="-Infinity" maxWidth="200.0" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
                                  <GridPane.margin>
                                     <Insets />
                                  </GridPane.margin>
@@ -51,7 +47,7 @@
                                     <Insets left="99.0" />
                                  </GridPane.margin>
                               </Button>
-                              <PasswordField maxWidth="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <PasswordField fx:id="passwordField" maxWidth="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <Button fx:id="loginButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" text="Login" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <GridPane.margin>
                                     <Insets right="126.0" />
@@ -90,34 +86,22 @@
                               <Text lineSpacing="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" textAlignment="CENTER" GridPane.rowIndex="4" />
                               <Text lineSpacing="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" textAlignment="CENTER" GridPane.rowIndex="5" />
                               <Text lineSpacing="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" textAlignment="CENTER" GridPane.rowIndex="6" />
-                              <TextField fx:id="usenameField" alignment="CENTER" maxHeight="-Infinity" maxWidth="200.0" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
-                                 <effect>
-                                    <Reflection />
-                                 </effect>
+                              <TextField fx:id="usenameField" maxHeight="-Infinity" maxWidth="200.0" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
                                  <GridPane.margin>
                                     <Insets />
                                  </GridPane.margin>
                               </TextField>
-                              <TextField fx:id="fnField" alignment="CENTER" maxHeight="-Infinity" maxWidth="200.0" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                                 <effect>
-                                    <Reflection />
-                                 </effect>
+                              <TextField fx:id="fnField" maxHeight="-Infinity" maxWidth="200.0" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                  <GridPane.margin>
                                     <Insets />
                                  </GridPane.margin>
                               </TextField>
-                              <TextField fx:id="lnField" alignment="CENTER" maxHeight="-Infinity" maxWidth="200.0" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                                 <effect>
-                                    <Reflection />
-                                 </effect>
+                              <TextField fx:id="lnField" maxHeight="-Infinity" maxWidth="200.0" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                  <GridPane.margin>
                                     <Insets />
                                  </GridPane.margin>
                               </TextField>
-                              <TextField fx:id="Email" alignment="CENTER" maxHeight="-Infinity" maxWidth="200.0" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                                 <effect>
-                                    <Reflection />
-                                 </effect>
+                              <TextField fx:id="email" alignment="BOTTOM_LEFT" maxHeight="-Infinity" maxWidth="200.0" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                                  <GridPane.margin>
                                     <Insets />
                                  </GridPane.margin>

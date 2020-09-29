@@ -13,8 +13,34 @@
         <kotlin.version>1.4.0</kotlin.version>
         <tornadofx.version>1.7.20</tornadofx.version>
     </properties>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.4.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
 
     <dependencies>
+        <dependency>
+            <groupId>com.mashape.unirest</groupId>
+            <artifactId>unirest-java</artifactId>
+            <version>1.4.9</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.ws</groupId>
+            <artifactId>spring-ws-core</artifactId>
+            <version>3.0.1.RELEASE</version>
+        </dependency>
         <dependency>
             <groupId>no.tornado</groupId>
             <artifactId>tornadofx</artifactId>
@@ -31,27 +57,7 @@
             <version>${kotlin.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx</artifactId>
-            <version>11.0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-base</artifactId>
-            <version>11.0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-fxml</artifactId>
-            <version>11.0.2</version>
-        </dependency>
 
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-controls</artifactId>
-            <version>11.0.2</version>
-        </dependency>
     </dependencies>
 
     <build>
@@ -69,7 +75,7 @@
                             <goal>compile</goal>
                         </goals>
                         <configuration>
-                        <jvmTarget>11</jvmTarget>
+                        <jvmTarget>1.8</jvmTarget>
                         </configuration>
                     </execution>
                     <execution>
@@ -81,21 +87,26 @@
                     </execution>
                 </executions>
             </plugin>
+
             <plugin>
-                <groupId>org.openjfx</groupId>
+                <groupId>com.zenjava</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
-                <version>0.0.3</version>
+                <version>8.8.3</version>
                 <configuration>
-                    <mainClass>com.example.demo.app.MyApp</mainClass>
+                    <mainClass>sut.ist912.zelen.app.MyApp</mainClass>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>9</source>
-                    <target>9</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
