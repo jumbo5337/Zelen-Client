@@ -3,6 +3,7 @@ package sut.ist912.zelen.rest
 import com.mashape.unirest.http.Unirest
 import org.springframework.stereotype.Component
 import sut.ist912.zelen.rest.dto.ZelenException
+import java.lang.RuntimeException
 
 
 @Component
@@ -14,10 +15,9 @@ class LoginClient : BaseClient() {
                 .body("{\r\n    \"username\" : \"$username\",\r\n    \"password\" : \"$password\"\r\n}")
                 .asJson()
         if (response.status == 200) {
-            jwt = response.body.`object`["token"] as String
-            println(jwt)
+            jwt = response.body.`object`.getString("token")
         } else {
-            throw ZelenException(response.body.`object`["message"] as String)
+            throw ZelenException(response.body.`object`.getString("message"))
         }
     }
 
@@ -29,7 +29,7 @@ class LoginClient : BaseClient() {
             firstName: String,
             lastName: String,
             email: String,
-    ){
+    ) {
         val response = Unirest.post("$API_URL/api/v1/auth/register")
                 .header("Content-Type", "application/json")
                 .body("""
@@ -45,7 +45,7 @@ class LoginClient : BaseClient() {
                 """.trimIndent())
                 .asJson()
         if (response.status != 200) {
-              throw ZelenException(response.body.`object`["message"] as String)
+            throw ZelenException(response.body.`object`["message"] as String)
         }
 
     }
@@ -66,13 +66,17 @@ class LoginClient : BaseClient() {
                             "username" : "$username" 
                      }
                 """.trimIndent())
-                .asJson()
-        if (response.status != 200) {
-            throw ZelenException(response.body.`object`["message"] as String)
-        } else {
-            return response.body.`object`["message"] as String
-        }
+                .asJson().takeIf {
+                    if (it.status == 200) {
+                        true
+                    } else if (it.status == 400) {
+                        throw ZelenException(it.body.`object`.getString("message"))
+                    } else {
+                        throw RuntimeException(it.body.toString())
+                    }
 
+                }
+        return response!!.body.`object`.getString("message")
     }
 
 

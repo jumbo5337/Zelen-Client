@@ -14,7 +14,7 @@ import sut.ist912.zelen.rest.dto.ZelenException
 import tornadofx.*
 
 
-class Login : View() {
+class Login : View("Вкатиться в Зелень") {
     override val root: BorderPane by fxml("/Login.fxml")
     private val maiTabPane: TabPane by fxid("loginMainTab")
     private val loginButton: Button by fxid("loginButton")
@@ -85,6 +85,7 @@ class Login : View() {
         } else {
             try {
                 loginClient.login(loginField.text, passwordField.text)
+                replaceWith(MainView::class, ViewTransition.Slide(0.3.seconds, ViewTransition.Direction.LEFT), sizeToScene = true)
             } catch (exc: ZelenException) {
                 val alert = Alert(AlertType.ERROR)
                 alert.title = "Ошибка Авторизации"
