@@ -2,140 +2,183 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="500.0" prefWidth="744.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <SplitPane dividerPositions="0.3353413654618474" prefHeight="500.0" prefWidth="650.0" BorderPane.alignment="CENTER">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="498.0" prefWidth="204.0">
-               <children>
-                  <TabPane layoutX="-3.0" layoutY="-1.0" prefHeight="500.0" prefWidth="218.0" tabClosingPolicy="UNAVAILABLE">
-                    <tabs>
-                      <Tab text="Главная">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="366.0" minWidth="10.0" prefWidth="226.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="535.0" minWidth="10.0" prefWidth="518.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TabPane prefHeight="500.0" prefWidth="258.0" tabClosingPolicy="UNAVAILABLE">
+               <tabs>
+                  <Tab text="Главная">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GridPane prefHeight="304.0" prefWidth="217.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="103.0" minWidth="10.0" prefWidth="91.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="144.0" minWidth="10.0" prefWidth="126.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
                                  <children>
-                                    <GridPane prefHeight="304.0" prefWidth="217.0">
-                                      <columnConstraints>
-                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="103.0" minWidth="10.0" prefWidth="91.0" />
-                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="144.0" minWidth="10.0" prefWidth="126.0" />
-                                      </columnConstraints>
-                                      <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
-                                       <children>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Номер счёта" wrappingWidth="70.21875" />
-                                          <TextField fx:id="idField" maxWidth="100.0" prefHeight="25.0" prefWidth="88.0" GridPane.columnIndex="1" />
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Баланс" GridPane.rowIndex="1" />
-                                          <TextField fx:id="balanceField" maxWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <Button fx:id="refillBalanceButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0" text="Обновить" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                          <Button fx:id="depositButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0" text="Внести деньги" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                          <Button fx:id="withdravalButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0" text="Снять деньги" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                          <Button fx:id="transferButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0" text="Перевод" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                       </children>
-                                    </GridPane>
-                                 </children></AnchorPane>
-                        </content>
-                      </Tab>
-                      <Tab text="Личные сведения">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                 <children>
-                                    <GridPane layoutX="9.0" layoutY="5.0" prefHeight="297.0" prefWidth="200.0">
-                                      <columnConstraints>
-                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="54.0" />
-                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="146.0" minWidth="10.0" prefWidth="146.0" />
-                                      </columnConstraints>
-                                      <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
-                                       <children>
-                                          <TextField maxHeight="15.0" maxWidth="128.0" prefHeight="15.0" prefWidth="128.0" GridPane.columnIndex="1" />
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Логин" />
-                                          <TextField maxHeight="15.0" maxWidth="128.0" prefHeight="15.0" prefWidth="128.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Имя" GridPane.rowIndex="1" />
-                                          <TextField maxHeight="15.0" maxWidth="128.0" prefHeight="15.0" prefWidth="128.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Фамилия" GridPane.rowIndex="2" />
-                                          <TextField maxHeight="15.0" maxWidth="128.0" prefHeight="15.0" prefWidth="128.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="email" GridPane.rowIndex="3" />
-                                          <Button fx:id="changeUIButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Изменить" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Сменить пароль" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                          <Button lineSpacing="19.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Сменить код" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                                       </children>
-                                    </GridPane>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Номер счёта" wrappingWidth="70.21875" />
+                                    <TextField fx:id="idField" editable="false" maxWidth="100.0" prefHeight="25.0" prefWidth="88.0" GridPane.columnIndex="1" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Баланс" GridPane.rowIndex="1" />
+                                    <TextField fx:id="balanceField" editable="false" maxWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Button fx:id="refreshButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0" text="Обновить" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Button fx:id="depositButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0" text="Внести деньги" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Button fx:id="withdrawalButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0" text="Снять деньги" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <Button fx:id="transferButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0" text="Перевод" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                  </children>
-                              </AnchorPane>
-                        </content>
-                      </Tab>
-                    </tabs>
-                  </TabPane>
-               </children></AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="351.0" prefWidth="379.0">
-               <children>
-                  <TabPane fx:id="operationsTab" layoutY="-4.0" prefHeight="500.0" prefWidth="428.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-4.0">
-                    <tabs>
-                      <Tab fx:id="depositTab" text="Зачисления">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Личные сведения">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <GridPane layoutX="9.0" layoutY="5.0" prefHeight="297.0" prefWidth="200.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="54.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="146.0" minWidth="10.0" prefWidth="146.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
                                  <children>
-                                    <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="471.0" prefWidth="428.0">
-                                      <content>
-                                        <AnchorPane fx:id="depositPane" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                                      </content>
-                                    </ScrollPane>
-                                 </children></AnchorPane>
-                        </content>
-                      </Tab>
-                      <Tab text="Снятия">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                 <children>
-                                    <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="471.0" prefWidth="428.0">
-                                       <content>
-                                          <AnchorPane fx:id="withdravalPane" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                                       </content>
-                                    </ScrollPane>
-                                 </children></AnchorPane>
-                        </content>
-                      </Tab>
-                        <Tab fx:id="transferTab" text="Переводы">
-                            <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="400.0">
-                                 <children>
-                                    <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="471.0" prefWidth="428.0">
-                                       <content>
-                                          <AnchorPane fx:id="transferPane" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                                       </content>
-                                    </ScrollPane>
-                                 </children></AnchorPane>
-                            </content>
-                        </Tab>
-                    </tabs>
-                  </TabPane>
-               </children>
-            </AnchorPane>
-        </items>
-      </SplitPane>
+                                    <TextField fx:id="loginInfo" editable="false" maxHeight="15.0" maxWidth="128.0" prefHeight="15.0" prefWidth="128.0" GridPane.columnIndex="1" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Логин" />
+                                    <TextField fx:id="fnInfo" editable="false" maxHeight="15.0" maxWidth="128.0" prefHeight="15.0" prefWidth="128.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Имя" GridPane.rowIndex="1" />
+                                    <TextField fx:id="lnInfo" editable="false" maxHeight="15.0" maxWidth="128.0" prefHeight="15.0" prefWidth="128.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Фамилия" GridPane.rowIndex="2" />
+                                    <TextField fx:id="email" maxHeight="15.0" maxWidth="128.0" prefHeight="15.0" prefWidth="128.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="email" GridPane.rowIndex="3" />
+                                    <Button fx:id="changePassButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Сменить пароль" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <Button fx:id="changeSecretButton" lineSpacing="19.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Сменить кодовое слово" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                       <font>
+                                          <Font size="9.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+            <TabPane fx:id="operationsTab" prefHeight="500.0" prefWidth="515.0" tabClosingPolicy="UNAVAILABLE" GridPane.columnIndex="1">
+               <tabs>
+                  <Tab fx:id="depositTab" text="Зачисления">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="471.0" prefWidth="519.0">
+                                 <content>
+                                    <AnchorPane fx:id="depositPane" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView layoutX="-1.0" prefHeight="468.0" prefWidth="510.0">
+                                             <columns>
+                                                <TableColumn fx:id="deposit_ts" prefWidth="108.0" text="Дата" />
+                                                <TableColumn fx:id="deposit_id" prefWidth="125.0" text="ID транзакции" />
+                                                <TableColumn fx:id="deposit_summ" prefWidth="122.0" text="Сумма" />
+                                             </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Снятия">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="471.0" prefWidth="516.0">
+                                 <content>
+                                    <AnchorPane fx:id="withdravalPane" minHeight="0.0" minWidth="0.0" prefHeight="469.0" prefWidth="540.0">
+                                       <children>
+                                          <TableView layoutX="-1.0" layoutY="-2.0" prefHeight="468.0" prefWidth="515.0">
+                                             <columns>
+                                                <TableColumn fx:id="wd_ts" prefWidth="75.0" text="Дата" />
+                                                <TableColumn fx:id="ws_id" prefWidth="118.0" text="ID транзакции" />
+                                                <TableColumn fx:id="wd_sum" prefWidth="75.0" text="Сумма" />
+                                                <TableColumn fx:id="wd_fee" prefWidth="75.0" text="Комиссия" />
+                                             </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="transferTab" text="Переводы">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="471.0" prefWidth="533.0">
+                           <children>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="471.0" prefWidth="516.0">
+                                 <content>
+                                    <AnchorPane fx:id="transferPane" minHeight="0.0" minWidth="0.0" prefHeight="469.0" prefWidth="531.0">
+                                       <children>
+                                          <TableView layoutY="-2.0" prefHeight="470.0" prefWidth="514.0">
+                                             <columns>
+                                                <TableColumn fx:id="tr_ts" prefWidth="73.0" text="Дата" />
+                                                <TableColumn fx:id="tr_id" prefWidth="91.0" text="ID транзакции" />
+                                                <TableColumn fx:id="tr_type" prefWidth="72.0" text="Тип" />
+                                                <TableColumn prefWidth="114.0" text="Номер счёта" />
+                                                <TableColumn fx:id="tr_sum" prefWidth="83.0" text="Сумма" />
+                                                <TableColumn fx:id="tr_fee" prefWidth="73.0" text="Комиссия" />
+                                             </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+         </children>
+      </GridPane>
    </center>
 </BorderPane>

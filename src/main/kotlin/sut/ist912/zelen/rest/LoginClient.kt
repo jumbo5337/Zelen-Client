@@ -1,8 +1,10 @@
 package sut.ist912.zelen.rest
 
 import com.mashape.unirest.http.Unirest
+import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties
 import org.springframework.stereotype.Component
 import sut.ist912.zelen.rest.dto.ZelenException
+import sut.ist912m.zelen.app.dto.ZelenMessage
 import java.lang.RuntimeException
 
 
@@ -15,7 +17,7 @@ class LoginClient : BaseClient() {
                 .body("{\r\n    \"username\" : \"$username\",\r\n    \"password\" : \"$password\"\r\n}")
                 .asJson()
         if (response.status == 200) {
-            jwt = response.body.`object`.getString("token")
+            jwtToken = response.body.`object`.getString("token")
         } else {
             throw ZelenException(response.body.`object`.getString("message"))
         }
@@ -43,9 +45,10 @@ class LoginClient : BaseClient() {
                          "email" : "$email" 
                      }
                 """.trimIndent())
-                .asJson()
+                .asString()
         if (response.status != 200) {
-            throw ZelenException(response.body.`object`["message"] as String)
+            val msg = objectMapper.readValue(response.body, ZelenMessage::class.java)
+            throw ZelenException(msg.message)
         }
 
     }
@@ -66,17 +69,20 @@ class LoginClient : BaseClient() {
                             "username" : "$username" 
                      }
                 """.trimIndent())
-                .asJson().takeIf {
-                    if (it.status == 200) {
-                        true
-                    } else if (it.status == 400) {
-                        throw ZelenException(it.body.`object`.getString("message"))
-                    } else {
-                        throw RuntimeException(it.body.toString())
-                    }
+                .asString()
 
-                }
-        return response!!.body.`object`.getString("message")
+        when (response.status) {
+            200 -> return objectMapper.readValue(response.body, ZelenMessage::class.java).message
+            400 -> {
+                val msg = objectMapper.readValue(response.body, ZelenMessage::class.java)
+                throw ZelenException(msg.message)
+            }
+            else -> throw RuntimeException(response.body)
+        }
+    }
+
+    companion object {
+        lateinit var jwtToken: String
     }
 
 

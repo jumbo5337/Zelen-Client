@@ -34,3 +34,7 @@ data class UserInfoRequest(
         val secondName: String,
         val email: String
 )
+
+data class ZelenMessage(
+        val message: String
+)

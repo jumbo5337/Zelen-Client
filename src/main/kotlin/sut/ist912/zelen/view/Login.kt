@@ -97,11 +97,9 @@ class Login : View("Вкатиться в Зелень") {
     }
 
     private fun tryResetPassword() {
-        // Create the custom dialog.
         val dialog: Dialog<Boolean> = Dialog()
         dialog.title = "Reset Password"
         dialog.headerText = "Введите данные для сброса пароля"
-//        dialog.graphic = ImageView(this.javaClass.getResource("login.png").toString())
 
         val loginButtonType = ButtonType("Reset", ButtonData.OK_DONE)
         dialog.dialogPane.buttonTypes.addAll(loginButtonType, ButtonType.CANCEL)

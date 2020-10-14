@@ -1,7 +1,8 @@
 package sut.ist912m.zelen.app.entity
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import java.time.Instant
-import java.time.LocalDate
+import java.util.*
 
 data class User (
         val id: Long,
@@ -25,12 +26,13 @@ data class UserBalance(
         val balance: Double
 )
 
-data class UserProfile(
+@JsonIgnoreProperties(ignoreUnknown = true)
+data class UserProfile (
         val userId: Long,
         val username: String,
-        val registerTime : Instant,
-        val lastSeen: Instant,
-        val role: Role,
+        val registerTime : Date,
+        val lastSeen: Date,
+        val role: String,
         val firstName : String,
         val lastName: String,
         val email: String,
