@@ -111,11 +111,11 @@
                                  <content>
                                     <AnchorPane fx:id="depositPane" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <TableView layoutX="-1.0" prefHeight="468.0" prefWidth="510.0">
+                                          <TableView fx:id="depositTable" layoutX="-1.0" prefHeight="468.0" prefWidth="510.0">
                                              <columns>
-                                                <TableColumn fx:id="deposit_ts" prefWidth="108.0" text="Дата" />
-                                                <TableColumn fx:id="deposit_id" prefWidth="125.0" text="ID транзакции" />
-                                                <TableColumn fx:id="deposit_summ" prefWidth="122.0" text="Сумма" />
+                                                <TableColumn fx:id="depositTs" prefWidth="108.0" text="Дата" />
+                                                <TableColumn fx:id="depositId" prefWidth="125.0" text="ID транзакции" />
+                                                <TableColumn fx:id="depositSum" prefWidth="122.0" text="Сумма" />
                                              </columns>
                                           </TableView>
                                        </children>
@@ -134,12 +134,13 @@
                                  <content>
                                     <AnchorPane fx:id="withdravalPane" minHeight="0.0" minWidth="0.0" prefHeight="469.0" prefWidth="540.0">
                                        <children>
-                                          <TableView layoutX="-1.0" layoutY="-2.0" prefHeight="468.0" prefWidth="515.0">
+                                          <TableView fx:id="withdrawalTable" layoutX="-1.0" layoutY="-2.0" prefHeight="468.0" prefWidth="515.0">
                                              <columns>
-                                                <TableColumn fx:id="wd_ts" prefWidth="75.0" text="Дата" />
-                                                <TableColumn fx:id="ws_id" prefWidth="118.0" text="ID транзакции" />
-                                                <TableColumn fx:id="wd_sum" prefWidth="75.0" text="Сумма" />
-                                                <TableColumn fx:id="wd_fee" prefWidth="75.0" text="Комиссия" />
+                                                <TableColumn fx:id="withdrawalTs" prefWidth="75.0" text="Дата" />
+                                                <TableColumn fx:id="withdrawalId" prefWidth="118.0" text="ID транзакции" />
+                                                <TableColumn fx:id="withdrawalSum" prefWidth="75.0" text="Сумма" />
+                                                <TableColumn fx:id="withdrawalFee" prefWidth="75.0" text="Комиссия" />
+                                                <TableColumn fx:id="withdrawalTotal" prefWidth="75.0" text="Итого" />
                                              </columns>
                                           </TableView>
                                        </children>
@@ -158,14 +159,15 @@
                                  <content>
                                     <AnchorPane fx:id="transferPane" minHeight="0.0" minWidth="0.0" prefHeight="469.0" prefWidth="531.0">
                                        <children>
-                                          <TableView layoutY="-2.0" prefHeight="470.0" prefWidth="514.0">
+                                          <TableView fx:id="opTable" layoutY="-2.0" prefHeight="470.0" prefWidth="514.0">
                                              <columns>
-                                                <TableColumn fx:id="tr_ts" prefWidth="73.0" text="Дата" />
-                                                <TableColumn fx:id="tr_id" prefWidth="91.0" text="ID транзакции" />
-                                                <TableColumn fx:id="tr_type" prefWidth="72.0" text="Тип" />
-                                                <TableColumn prefWidth="114.0" text="Номер счёта" />
-                                                <TableColumn fx:id="tr_sum" prefWidth="83.0" text="Сумма" />
-                                                <TableColumn fx:id="tr_fee" prefWidth="73.0" text="Комиссия" />
+                                                <TableColumn fx:id="opTs" prefWidth="56.0" text="Дата" />
+                                                <TableColumn fx:id="opId" prefWidth="66.0" text="ID транзакции" />
+                                                <TableColumn fx:id="opType" prefWidth="65.0" text="Тип" />
+                                                <TableColumn fx:id="opMember" prefWidth="79.0" text="Номер счёта" />
+                                                <TableColumn fx:id="opSum" prefWidth="69.0" text="Сумма" />
+                                                <TableColumn fx:id="opFee" prefWidth="102.0" text="Комиссия" />
+                                                <TableColumn fx:id="opTotal" prefWidth="76.0" text="Итого" />
                                              </columns>
                                           </TableView>
                                        </children>

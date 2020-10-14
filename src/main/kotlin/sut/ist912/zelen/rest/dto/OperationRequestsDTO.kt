@@ -22,7 +22,7 @@ data class TransferRequest (
 
 data class Receipt (
         val operation: Operation,
-        val receiverInfo: UserInfo
+        val receiverInfo: UserInfo? = null
 )
 
 data class ConfirmRequest (

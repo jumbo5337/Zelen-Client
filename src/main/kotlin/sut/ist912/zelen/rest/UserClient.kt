@@ -1,9 +1,12 @@
 package sut.ist912.zelen.rest
 
+import com.fasterxml.jackson.module.kotlin.readValue
 import com.mashape.unirest.http.Unirest
 import org.springframework.stereotype.Component
 import sut.ist912.zelen.utils.Jwt
+import sut.ist912m.zelen.app.dto.Receipt
 import sut.ist912m.zelen.app.dto.ZelenMessage
+import sut.ist912m.zelen.app.entity.Operation
 import sut.ist912m.zelen.app.entity.UserBalance
 import sut.ist912m.zelen.app.entity.UserProfile
 
@@ -55,6 +58,22 @@ class UserClient : BaseClient() {
         return objectMapper.readValue(response.body, UserBalance::class.java)
     }
 
+
+    fun loadOperations(opType : Int) : List<Receipt> {
+        val response = Unirest.post("http://localhost:8085/api/v1/user/operations")
+                .header("Authorization",  Jwt())
+                .header("Content-Type", "application/json")
+                .body("{\r\n   \"opType\": $opType\r\n}")
+                .asString()
+                .body
+       return if(response.isNullOrBlank()) {
+           emptyList()
+       } else if(opType == 2) {
+           objectMapper.readValue<List<Receipt>>(response)
+       } else {
+           objectMapper.readValue<List<Operation>>(response).map { Receipt(it, null) }
+       }
+    }
 
 
 
