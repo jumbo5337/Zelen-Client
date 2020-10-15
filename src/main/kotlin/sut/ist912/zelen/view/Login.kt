@@ -98,7 +98,7 @@ class Login : View("Вкатиться в Зелень") {
 
     private fun tryResetPassword() {
         val dialog: Dialog<Boolean> = Dialog()
-        dialog.title = "Reset Password"
+        dialog.title = "Сброс пароля"
         dialog.headerText = "Введите данные для сброса пароля"
 
         val loginButtonType = ButtonType("Reset", ButtonData.OK_DONE)
@@ -115,15 +115,15 @@ class Login : View("Вкатиться в Зелень") {
         val passwordField2 = PasswordField()
 
 
-        grid.add(Label("Username:"), 0, 0)
+        grid.add(Label("Логин:"), 0, 0)
         grid.add(usernameField, 1, 0)
-        grid.add(Label("Secret:"), 0, 1)
+        grid.add(Label("Кодовое слово:"), 0, 1)
         grid.add(secretField, 1, 1)
 
-        grid.add(Label("New password:"), 0, 2)
+        grid.add(Label("Новый пароль:"), 0, 2)
         grid.add(passwordField1, 1, 2)
 
-        grid.add(Label("Repeat:"), 0, 3)
+        grid.add(Label("Новый пароль:"), 0, 3)
         grid.add(passwordField2, 1, 3)
 
 

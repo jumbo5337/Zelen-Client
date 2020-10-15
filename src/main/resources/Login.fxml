@@ -20,7 +20,7 @@
    <center>
       <TabPane fx:id="loginMainTab" prefHeight="391.0" prefWidth="352.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
-          <Tab fx:id="loginTab" text="Login">
+          <Tab fx:id="loginTab" text="Авторизация">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="192.0">
                      <children>
@@ -35,20 +35,20 @@
                               <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="36.0" valignment="CENTER" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password" GridPane.rowIndex="1" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Пароль" GridPane.rowIndex="1" />
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Логин" />
                               <TextField fx:id="usenameField1" maxHeight="-Infinity" maxWidth="200.0" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
                                  <GridPane.margin>
                                     <Insets />
                                  </GridPane.margin>
                               </TextField>
                                <PasswordField fx:id="passwordField" maxWidth="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                               <Button fx:id="loginButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" text="Login" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                               <Button fx:id="loginButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" text="Войти" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                    <GridPane.margin>
                                        <Insets right="126.0" />
                                    </GridPane.margin>
                                </Button>
-                              <Button fx:id="restPassword" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" text="Reset Pass" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                              <Button fx:id="restPassword" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" text="Забыл пароль" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <GridPane.margin>
                                     <Insets left="99.0" />
                                  </GridPane.margin>
@@ -59,7 +59,7 @@
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Register">
+          <Tab text="Регистрация">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="337.0" prefWidth="232.0">
                      <children>
@@ -79,12 +79,12 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password" GridPane.rowIndex="1" />
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
-                              <Text lineSpacing="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password" textAlignment="CENTER" wrappingWidth="50.0" GridPane.rowIndex="2" />
-                              <Text lineSpacing="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Secret" textAlignment="CENTER" wrappingWidth="50.0" GridPane.rowIndex="3" />
-                              <Text lineSpacing="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" textAlignment="CENTER" GridPane.rowIndex="4" />
-                              <Text lineSpacing="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" textAlignment="CENTER" GridPane.rowIndex="5" />
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Пароль" GridPane.rowIndex="1" />
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Логин" />
+                              <Text lineSpacing="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Пароль" textAlignment="CENTER" wrappingWidth="50.0" GridPane.rowIndex="2" />
+                              <Text lineSpacing="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Кодовое слово" textAlignment="CENTER" wrappingWidth="50.0" GridPane.rowIndex="3" />
+                              <Text lineSpacing="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Имя" textAlignment="CENTER" GridPane.rowIndex="4" />
+                              <Text lineSpacing="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Фамилия" textAlignment="CENTER" GridPane.rowIndex="5" />
                               <Text lineSpacing="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" textAlignment="CENTER" GridPane.rowIndex="6" />
                               <TextField fx:id="usenameField" maxHeight="-Infinity" maxWidth="200.0" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER">
                                  <GridPane.margin>
@@ -109,7 +109,7 @@
                                     <Insets />
                                  </GridPane.margin>
                               </TextField>
-                              <Button fx:id="registerButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Button" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                              <Button fx:id="registerButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Зарегистрироваться" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                            </children>
                         </GridPane>
                      </children>
