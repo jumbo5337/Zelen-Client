@@ -31,8 +31,11 @@ open class MyApp: App(Login::class) {
         super.stop()
         context.close()
     }
+    companion object{
+        @JvmStatic
+        fun main(args: Array<String>) {
+            Application.launch(MyApp::class.java, *args)
+        }
+    }
 }
 
-fun main(args: Array<String>) {
-    Application.launch(MyApp::class.java, *args)
-}
