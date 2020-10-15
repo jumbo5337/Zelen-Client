@@ -164,10 +164,10 @@
                                                 <TableColumn fx:id="opTs" prefWidth="56.0" text="Дата" />
                                                 <TableColumn fx:id="opId" prefWidth="66.0" text="ID транзакции" />
                                                 <TableColumn fx:id="opType" prefWidth="65.0" text="Тип" />
-                                                <TableColumn fx:id="opMember" prefWidth="79.0" text="Номер счёта" />
-                                                <TableColumn fx:id="opSum" prefWidth="69.0" text="Сумма" />
-                                                <TableColumn fx:id="opFee" prefWidth="102.0" text="Комиссия" />
-                                                <TableColumn fx:id="opTotal" prefWidth="76.0" text="Итого" />
+                                                <TableColumn fx:id="opMember" prefWidth="115.0" text="Номер счёта" />
+                                                <TableColumn fx:id="opSum" prefWidth="75.0" text="Сумма" />
+                                                <TableColumn fx:id="opFee" prefWidth="66.0" text="Комиссия" />
+                                                <TableColumn fx:id="opTotal" prefWidth="70.0" text="Итого" />
                                              </columns>
                                           </TableView>
                                        </children>

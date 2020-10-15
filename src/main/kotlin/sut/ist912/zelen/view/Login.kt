@@ -107,7 +107,7 @@ class Login : View("Вкатиться в Зелень") {
         val grid = GridPane()
         grid.hgap = 10.0
         grid.vgap = 10.0
-        grid.padding = Insets(20.0, 150.0, 10.0, 10.0)
+        grid.padding = Insets(20.0, 15.0, 10.0, 10.0)
 
         val usernameField = TextField()
         val secretField = TextField()
@@ -128,12 +128,11 @@ class Login : View("Вкатиться в Зелень") {
 
 
         val loginButton: Node = dialog.dialogPane.lookupButton(loginButtonType)
-        loginButton.setDisable(true)
-
-        usernameField.textProperty().addListener { _, _, newValue -> loginButton.setDisable(newValue.trim().isEmpty()) }
-        secretField.textProperty().addListener { _, _, newValue -> loginButton.setDisable(newValue.trim().isEmpty()) }
-        passwordField1.textProperty().addListener { _, _, newValue -> loginButton.setDisable(newValue.trim().isEmpty()) }
-        passwordField2.textProperty().addListener { _, _, newValue -> loginButton.setDisable(newValue.trim().isEmpty()) }
+        loginButton.disableProperty().bind(
+                usernameField.textProperty().isEmpty
+                        .and(secretField.textProperty().isEmpty)
+                        .and(passwordField1.textProperty().isEmpty)
+                        .and(passwordField2.textProperty().isEmpty))
 
         dialog.dialogPane.content = grid
 

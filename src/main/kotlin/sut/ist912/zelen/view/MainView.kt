@@ -1,30 +1,28 @@
 package sut.ist912.zelen.view
 
-import javafx.beans.property.SimpleStringProperty
-import javafx.fxml.FXMLLoader
-import javafx.fxml.Initializable
-import javafx.scene.control.Button
-import javafx.scene.control.TableColumn
-import javafx.scene.control.TableView
-import javafx.scene.control.TextField
+import javafx.scene.control.*
 import javafx.scene.control.cell.PropertyValueFactory
 import javafx.scene.layout.BorderPane
+import sut.ist912.zelen.dialogs.DepositDialog
+import sut.ist912.zelen.dialogs.PasswordDialog
+import sut.ist912.zelen.dialogs.WithdrawalDialog
 import sut.ist912.zelen.rest.UserClient
 import sut.ist912.zelen.utils.format
+import sut.ist912.zelen.utils.toZString
 import sut.ist912.zelen.view.model.DepositModel
 import sut.ist912.zelen.view.model.OpeationModel
 import sut.ist912.zelen.view.model.WithdrawalModel
 import tornadofx.*
-import java.net.URL
 import java.text.SimpleDateFormat
-import java.util.*
 
 class MainView : View("Zelen"){
     override val root: BorderPane by fxml("/MainView.fxml")
 
-    private val dateFormat = SimpleDateFormat("dd/MM/yyyy hh:mm")
-
     private val userClient : UserClient by di()
+
+    private val passwordDialog : PasswordDialog by di()
+    private val depositDialog : DepositDialog by di()
+    private val withdrawalDialog : WithdrawalDialog by di()
 
     private val balanceField : TextField by fxid("balanceField")
     private val idField : TextField by fxid("idField")
@@ -78,7 +76,19 @@ class MainView : View("Zelen"){
         loadWithdrawals()
         loadOperations()
 
-        refreshButton.setOnAction { updateBalance() }
+        refreshButton.setOnAction { refreshPage() }
+        passwordButton.setOnAction { passwordDialog.changePassword() }
+        secretButton.setOnAction { passwordDialog.changeSecret() }
+        depositButton.setOnAction {
+            depositDialog.deposit()
+            updateBalance()
+            loadDeposits()
+        }
+        withdrawalButton.setOnAction {
+            withdrawalDialog.withdrawal()
+            updateBalance()
+            loadWithdrawals()
+        }
 
     }
 
@@ -93,17 +103,24 @@ class MainView : View("Zelen"){
         emailField.text = userInfo.email
     }
 
-    fun updateBalance(){
+    fun refreshPage(){
+        updateBalance()
+        loadDeposits()
+        loadOperations()
+        loadWithdrawals()
+    }
+
+    private fun updateBalance(){
         val updateBalance = userClient.updateBalance()
         balanceField.text = updateBalance.balance.format()
     }
 
-    fun loadDeposits(){
+    private fun loadDeposits(){
         val deposits = userClient.loadOperations(1)
                 .map {
                     val op = it.operation
                     DepositModel(
-                            dateFormat.format(op.updated),
+                            op.updated.toZString(),
                             op.id.toString(),
                             op.income.format()
                     )
@@ -111,12 +128,12 @@ class MainView : View("Zelen"){
         depositTable.items = deposits
     }
 
-    fun loadWithdrawals(){
+    private fun loadWithdrawals(){
         val deposits = userClient.loadOperations(3)
                 .map {
                     val op = it.operation
                     WithdrawalModel(
-                            dateFormat.format(op.updated),
+                            op.updated.toZString(),
                             op.id.toString(),
                             op.outcome.format(),
                             op.fee.format(),
@@ -126,7 +143,7 @@ class MainView : View("Zelen"){
         withdrawalTable.items = deposits
     }
 
-    fun loadOperations(){
+    private fun loadOperations(){
         val currentUserId = idField.text
         val deposits = userClient.loadOperations(2)
                 .filter {
@@ -136,7 +153,7 @@ class MainView : View("Zelen"){
                     val op = it.operation
                     if(op.senderId.toString() == currentUserId) { // Исходящий перевод
                         OpeationModel(
-                                dateFormat.format(op.updated),
+                                op.updated.toZString(),
                                 op.id.toString(),
                                 op.outcome.format(),
                                 op.fee.format(),
@@ -146,7 +163,7 @@ class MainView : View("Zelen"){
                         )
                     } else {
                         OpeationModel(
-                                dateFormat.format(op.updated),
+                                op.updated.toZString(),
                                 op.id.toString(),
                                 "-",
                                 "-",

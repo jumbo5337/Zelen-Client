@@ -6,6 +6,7 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import sut.ist912m.zelen.app.dto.Receipt
 import sut.ist912m.zelen.app.entity.Operation
 import sut.ist912m.zelen.app.entity.UserProfile
+import tornadofx.*
 
 
 fun main() {
@@ -27,7 +28,9 @@ fun main() {
         ]
         """.trimIndent()
 
-    print(objectMapper.readValue<List<Receipt>>(source))
+
+
+    print("1".isDouble())
 
 
 }
