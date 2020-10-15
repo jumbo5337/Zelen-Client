@@ -60,7 +60,7 @@ class UserClient : BaseClient() {
 
 
     fun loadOperations(opType : Int) : List<Receipt> {
-        val response = Unirest.post("http://localhost:8085/api/v1/user/operations")
+        val response = Unirest.post("$API_URL/api/v1/user/operations")
                 .header("Authorization",  jwt())
                 .header("Content-Type", "application/json")
                 .body("{\r\n   \"opType\": $opType\r\n}")
